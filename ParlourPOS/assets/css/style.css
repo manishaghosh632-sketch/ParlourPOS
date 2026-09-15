@@ -1,0 +1,59 @@
+/* assets/css/style.css */
+:root {
+    --bg-app: #f4f6fc; /* Light blue-gray/lavender background */
+    --sidebar-bg: #1a1b41; /* Deep indigo/royal-blue */
+    --accent-coral: #ff6b6b; /* Coral/pink accent */
+    --accent-hover: #ff5252;
+    --text-main: #334155;
+    --text-muted: #64748b;
+    --card-bg: #ffffff;
+    --transition-speed: 200ms;
+}
+
+body {
+    background-color: var(--bg-app);
+    color: var(--text-main);
+    overflow: hidden; /* Prevent body scroll, handle scroll in main content */
+}
+
+/* Smooth Transitions */
+.transition-smooth {
+    transition: all var(--transition-speed) ease;
+}
+
+/* Premium Card Styles */
+.pos-card {
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0,0,0,0.02);
+}
+
+/* Skeleton Loading Animation */
+.skeleton-box {
+    background: linear-gradient(90deg, #e2e8f0 25%, #f1f5f9 50%, #e2e8f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+    border-radius: 8px;
+}
+@keyframes skeleton-loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Page Transition Setup */
+#app-content {
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity var(--transition-speed) ease-out, transform var(--transition-speed) ease-out;
+}
+#app-content.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
